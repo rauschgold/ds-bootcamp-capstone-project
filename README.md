@@ -1,4 +1,3 @@
-test
 # ds-modeling-pipeline
 
 Here you find a Skeleton project for building a simple model in a python script or notebook and log the results on MLFlow.
