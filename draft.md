@@ -11,6 +11,39 @@ the recommendation system could be based on the rating of the project
  also hot encoding of the rating 
 
 
+----
+
+To check :
+
+'project_name',
+
+                       'department',
+
+- 'colour_rating',
+
+                      'description_aims',
+
+                       'rating_comment',
+    'start_date', 
+
+'end_date',
+
+                    'schedule_comment', 
+
+**'yearly_budget'**,
+
+**'yearly_forecast'**,
+
+**'wlc_baseline_incl_NCG'**,
+
+                    'variance_comment', 
+
+                   'budget_comment', 
+
+                   'year'
+  
+
+
 
 
 
