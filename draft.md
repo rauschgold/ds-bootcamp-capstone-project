@@ -13,59 +13,69 @@ the recommendation system could be based on the rating of the project
 
 ----
 
-To check :
+## Departments :
 
-'project_name',
+to merge :
+- `DoH`/`DHSC` Department of Health/ Department for Health & Social Care (formerly DH)
 
-                       'department',
 
-- 'colour_rating',
+- `FCO`/`FCDO`Foreign and Commonwealth Office / Foreign, Commonwealth and Development Office 
 
-                      'description_aims',
 
-                       'rating_comment',
-    'start_date', 
+- `MHCLG` Ministry of Housing, Communities and Local Government
+`DLUHC` Department for Levelling Up, Housing and Communities 
+`DCLG` Department for Communities and Local Government
 
-'end_date',
+**DCLG → MHCLG → DLUHC**: These departments are direct continuations of each other, with each rebranding reflecting changes in focus or priority
 
-                    'schedule_comment', 
+-`DESNZ` Department for Energy Security and Net Zero ( created on 7 February 2023)
+`BEIS` Department for Business, Energy and Industrial Strategy 
+`DECC` Department of Energy and Climate Change
 
-**'yearly_budget'**,
+**DECC → BEIS → DESNZ**: DECC’s responsibilities were absorbed into BEIS in 2016, which was later split, leading to the creation of DESNZ in 2023. These changes reflect evolving government focus, particularly on energy security and climate issues
 
-**'yearly_forecast'**,
 
-**'wlc_baseline_incl_NCG'**,
+- `BIS` Department for Business, Innovation and Skills 
+(Founded: June 5, 2009 Dissolved: 14 July 2016)
+- `DSIT` Department for Science, Innovation & Technology 
+ (Formed: 7 February 2023)
 
-                    'variance_comment', 
-
-                   'budget_comment', 
-
-                   'year'
-  
-
+**BIS → BEIS → DSIT**: The dissolution of BIS in 2016 and the creation of BEIS led to a broader department that combined energy, business, and innovation. With the 2023 restructuring, DSIT was formed to specifically focus on science, innovation, and technology, carving out these responsibilities from BEIS.
 
 
 
 
 
 
+-----
+
+department name is clear 
+
+- `DCMS` Department for Digital, Culture, Media & Sport
+- `HMRC` His /her Majesty’s Revenue and Customs 
+- `HMT` His/ her Majesty’s Treasury 
+- `HO` Home Office 
+- `HMLR` His Majesty’s Land Registry 
+- `MoD` Ministry of Defence 
+- `MoJ` Ministry of Justice
+- `NCA` National crime agency 
+- `NS&I` National Savings and Investment 
+- `ONS` Office for National Statistics 
+- `VOA` Valuation Office Agency 
+- `CO` Cabinet Office
+- `CPS` Crown Prosecution Service 
+- `DEFRA` Department for Environment, Food, and Rural Affairs
+- `DfE` Department for Education 
+- `DfID` Department for International Development 
+- `DfT` Department for Transport 
+- `DWP` Department for Work and Pensions
+- `DBT` Department for Business and Trade 
+
+(7 February 2023. The new department absorbed the functions of the former Department for International Trade and some of the functions of the former Department for Business, Energy, and Industrial Strategy.)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+----
 
 
 
