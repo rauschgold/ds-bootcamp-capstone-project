@@ -8,7 +8,7 @@ function App() {
   const [prediction, setPrediction] = useState(null);
 
   const handlePredict = async () => {
-    const response = await fetch('http://localhost:5000/predict', {
+    const response = await fetch('http://localhost:3000/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,4 +62,3 @@ function App() {
 }
 
 export default App;
-
