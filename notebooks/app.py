@@ -2,11 +2,12 @@ import streamlit as st
 import pickle
 import numpy as np
 import base64
+from best_model import model_wrapper
 
 
 # Loading trained ML model
 
-with open('../data/pickle/best_model.pkl', 'rb') as file:
+with open('best_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Main function of the app
@@ -68,17 +69,17 @@ def main():
     # Subheader with explaination
     st.markdown('<div class="centered">', unsafe_allow_html=True)
     st.markdown('<p class="body-font"> Select department and enter project length to get a prediction for costs.</p>', unsafe_allow_html=True)
+
+    # Streamlit Inputs
+    input_abteilung = st.selectbox("Choose department", ["CO", "CPS", "DBT", "DCMS", "DEFRA", "DEFRA & DFT", "DESNZ", "DFE", "DFID", "DFT", "DHSC", "DLUHC", "DSIT", "DWP", "FCDO", "HMLR", "HMRC", "HMT", "HO", "MOD", "MOJ", "NCA", "NS&I", "ONS", "VOA"])
+    input_jahre = st.number_input("Input project length (in years)", min_value=1, step=1)
+
+    # Prediction
+    if st.button("Compute prediction"):
+        predicted_cost = model_wrapper.predict(input_department, input_year)
+        st.write(f"The predicted costs for the project are: {predicted_cost} B £")
     
-    # Input fields
-    project_name = st.text_input("Project Name")
-    department = st.selectbox("Department", ["CO", "CPS", "DBT", "DCMS", "DEFRA", "DEFRA & DFT", "DESNZ", "DFE", "DFID", "DFT", "DHSC", "DLUHC", "DSIT", "DWP", "FCDO", "HMLR", "HMRC", "HMT", "HO", "MOD", "MOJ", "NCA", "NS&I", "ONS", "VOA"])
-    project_length_years = st.number_input("Planned Project Length (in years)", min_value=1, step=1)
-
     st.markdown('</div>', unsafe_allow_html=True)
-
-    if st.button("Prediction"):
-        cost = predict_project_cost(department, project_length_years)
-        st.success(f"The predicted costs for the project '{project_name}' are: {cost:.2f} B £")
 
 if __name__ == "__main__":
     main()
