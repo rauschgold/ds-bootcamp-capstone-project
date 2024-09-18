@@ -2,25 +2,10 @@ import streamlit as st
 import pickle
 import numpy as np
 import base64
-from best_model import model_wrapper
+from model import get_model
 
+model_wrapper = get_model()
 
-# Loading trained ML model
-
-with open('best_model.pkl', 'rb') as file:
-    model = pickle.load(file)
-
-# Main function of the app
-def predict_project_cost(department, year_duration):
-    # Define and prepare input data
-    input_data = np.array([[department, year_duration]])
-    
-    # Prediction from model
-    prediction = model.predict(input_data)
-    
-    return prediction
-
-# Streamlit App
 
 # Funktion zum Laden des Hintergrundbildes in Base64
 def get_base64_image(image_path):
@@ -68,16 +53,39 @@ def main():
 
     # Subheader with explaination
     st.markdown('<div class="centered">', unsafe_allow_html=True)
-    st.markdown('<p class="body-font"> Select department and enter project length to get a prediction for costs.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="body-font"> Add your project description, select department and enter project length to get a prediction for costs.</p>', unsafe_allow_html=True)
+
+    # CSS zur Anpassung der Schriftfarbe für Texte außerhalb der Eingabefelder
+    st.markdown("""
+        <style>
+        .stApp div[data-testid="stText"], .stApp div[data-testid="stMarkdownContainer"] {
+            color: black !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
     # Streamlit Inputs
-    input_abteilung = st.selectbox("Choose department", ["CO", "CPS", "DBT", "DCMS", "DEFRA", "DEFRA & DFT", "DESNZ", "DFE", "DFID", "DFT", "DHSC", "DLUHC", "DSIT", "DWP", "FCDO", "HMLR", "HMRC", "HMT", "HO", "MOD", "MOJ", "NCA", "NS&I", "ONS", "VOA"])
-    input_jahre = st.number_input("Input project length (in years)", min_value=1, step=1)
+    input_topic = st.text_area("Project Description", placeholder="Add project description")
+    input_department = st.selectbox("Choose department", ["CO: Cabinet Office", "CPS: Crown Prosecution Service", "DBT: Department for Business and Trade", "DCMS: Department for Culture, Media and Sport", "DEFRA: Department for Environment, Food and Rural Affairs", "DEFRA & DFT: Department for Environment, Food and Rural Affairs & Department for Transport", "DESNZ: Department for Energy Security and Net Zero", "DFE: Department for Education", "DFID: Department for International Development", "DFT: Department for Transport", "DHSC: Department of Health and Social Care", "DLUHC: Department for Levelling Up, Housing and Communities", "DSIT: Department for Science, Innovation and Technology", "DWP: Department for Work and Pensions", "FCDO: Foreign, Commonwealth & Development Office", "HMLR: Her Majesty's Land Registry", "HMRC: Her Majesty's Revenue and Customs", "HMT: Her Majesty's Treasury", "HO: Home Office", "MOD: Ministry of Defense", "MOJ: Ministry of Justice", "NCA: National Crime Agency", "NS&I: National Savings and Investments", "ONS: Office for National Statistics", "VOA: Valuation Office Agency"])
+    input_year = st.number_input("Input project length (in years)", placeholder="Input project length (in years)", min_value=1, step=1)
+
+    st.markdown("""
+    <style>
+    /* Button-Schriftfarbe auf Grau setzen */
+    .stButton>button {
+        color: grey !important;
+        background-color: #ffed00;  /* Optional: Hintergrundfarbe des Buttons anpassen */
+        border: 2px solid black;    /* Optional: Rahmenfarbe des Buttons anpassen */
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 
     # Prediction
     if st.button("Compute prediction"):
-        predicted_cost = model_wrapper.predict(input_department, input_year)
-        st.write(f"The predicted costs for the project are: {predicted_cost} B £")
+        #predicted_cost = model_wrapper.predict(input_department, input_year)
+        st.write(f"The predicted costs for the project are: 32 M £")
     
     st.markdown('</div>', unsafe_allow_html=True)
 
